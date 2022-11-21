@@ -1,0 +1,23 @@
+﻿<h1>Ecco l'elenco delle nostre pizze</h1>
+
+@model List<Pizza>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Pizza pizza in Model){
+                <tr>
+                    <th scope="row"><a href="@Url.Action("Details",new {id = pizza.Id})">@pizza.Id</a></th>
+                    <td>@pizza.Name</td>
+                    <td><img src="@pizza.Image" alt="@pizza.Name"/></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
